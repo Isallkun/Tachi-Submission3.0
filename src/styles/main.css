@@ -130,7 +130,7 @@ a {
  */
 
 .hero {
-  position: relative; /* Menambahkan posisi relatif untuk konten overlay */
+  position: relative; 
   display: flex;
   align-items: center;
   min-height: 380px;
@@ -423,8 +423,8 @@ body.dark-mode .dark-mode-toggle i {
 }
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #3498db; 
   border-radius: 50%;
   width: 120px;
   height: 120px;

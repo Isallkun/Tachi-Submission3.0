@@ -11,7 +11,7 @@ Before(({ I }) => {
 });
 
 Scenario('showing empty fondness restaurant', ({ I }) => {
-  I.amOnPage('/#/like');
+  I.amOnPage('/#/fav');
   I.wait(3);
   I.seeElement('.content');
   I.wait(3);
@@ -30,7 +30,7 @@ Scenario('fondness one restaurant', async ({ I }) => {
   I.seeElement('#likeButton');
   I.click('#likeButton');
   I.wait(3);
-  I.amOnPage('/#/like');
+  I.amOnPage('/#/fav');
   I.wait(3);
   I.seeElement('.restaurant-item');
   I.wait(3);
@@ -49,7 +49,7 @@ Scenario('unfondness one restaurant', async ({ I }) => {
   I.seeElement('#likeButton');
   I.click('#likeButton');
 
-  I.amOnPage('/#/like');
+  I.amOnPage('/#/fav');
   I.wait(2);
   const firstLikedCard = locate('h3').first();
   const cardLikedLink = firstLikedCard.find('a');
@@ -58,7 +58,7 @@ Scenario('unfondness one restaurant', async ({ I }) => {
   I.seeElement('#likeButton');
   I.click('#likeButton');
 
-  I.amOnPage('/#/like');
+  I.amOnPage('/#/fav');
   I.wait(2);
   I.see('', '.restaurants');
 });
