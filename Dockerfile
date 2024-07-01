@@ -9,3 +9,5 @@ RUN npm install
 COPY . .
 
 CMD ["sh", "-c", "npm run build && npm run start-dev"]
+
+EXPOSE 8080
