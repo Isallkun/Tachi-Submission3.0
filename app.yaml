@@ -1,18 +1,10 @@
-runtime: nodejs20
-env: flex
-
-service: tachi-submission
-
-manual_scaling:
-  instances: 1
-  
-env_variables:
-  NODE_ENV: production
+runtime: nodejs14
+service: default
 
 handlers:
-  - url: /.*
-    script: auto
-    secure: always 
+- url: /
+  static_files: dist/index.html
+  upload: dist/index.html
 
-network:
-  session_affinity: true
+- url: /
+  static_dir: dist
