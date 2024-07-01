@@ -8,8 +8,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+CMD ["sh", "-c", "npm run build && npm run start-dev"]
 
 EXPOSE 8080
-
-CMD ["npm", "run", "start-dev"]
