@@ -10,4 +10,4 @@ COPY . .
 
 CMD ["sh", "-c", "npm run build && npm run start-dev"]
 
-EXPOSE $PORT
+EXPOSE 8080
