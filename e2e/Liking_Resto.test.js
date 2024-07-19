@@ -62,3 +62,31 @@ Scenario('unfondness one restaurant', async ({ I }) => {
   I.wait(2);
   I.see('', '.restaurants');
 });
+
+Scenario('sorting restaurants by name', async ({ I }) => {
+  I.amOnPage('/#/home');
+  I.wait(3);
+  I.selectOption('#sortSelect', 'name');
+  I.wait(3);
+  const firstResto = await I.grabTextFrom(locate('.restaurant-item__content h3 a').first());
+  const secondResto = await I.grabTextFrom(locate('.restaurant-item__content h3 a').at(2));
+  assert(firstResto < secondResto);
+});
+
+Scenario('sorting restaurants by rating', async ({ I }) => {
+  I.amOnPage('/#/home');
+  I.wait(3);
+  I.selectOption('#sortSelect', 'rating');
+  I.wait(3);
+  const firstRestoRating = parseFloat(await I.grabTextFrom(locate('.restaurant-item__header__rating__score').first()));
+  const secondRestoRating = parseFloat(await I.grabTextFrom(locate('.restaurant-item__header__rating__score').at(2)));
+  assert(firstRestoRating >= secondRestoRating);
+});
+
+Scenario('accessing dark mode', async ({ I }) => {
+  I.amOnPage('/#/home');
+  I.wait(3);
+  I.click('#darkModeToggle');
+  I.wait(3);
+  I.seeElement('body.dark-mode');
+});

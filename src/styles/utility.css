@@ -90,7 +90,7 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; 
+  -webkit-line-clamp: 5; 
   -webkit-box-orient: vertical;
 }
 
@@ -102,14 +102,16 @@ main {
   margin: 0 auto;
   width: 100%;
   max-width: 800px;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 1fr;
   gap: 18px 16px;
 }
 
 .restaurant .restaurant__poster {
+  display: block;
   width: 100%;
   max-width: 400px;
+  margin: 0 auto;
 }
 
 .restaurant .restaurant__info h4 {
@@ -138,6 +140,26 @@ main {
 }
 
 /* Send Review */
+.review-item {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.review-name, .review-date {
+  font-weight: bold;
+}
+
+.review-date {
+  color: #999;
+  font-size: 12px;
+}
+
+.review-text {
+  margin-top: 8px;
+}
+
 input,
 button {
   font-size: 16px;
@@ -272,6 +294,8 @@ button {
   }
 
   .restaurant .restaurant__title {
+    text-align: center;
+    margin: 16px 0;
     grid-column-start: 1;
     grid-column-end: 3;
   }
@@ -374,4 +398,62 @@ img {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+}
+
+.custom-alert {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.custom-alert-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.latest .search-form {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.search-container {
+  display: flex;
+  gap: 8px;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+}
+
+.latest .search-form input,
+.latest .search-form select,
+.latest .search-form button {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.latest .search-form button {
+  background-color: #ff8080;
+  color: white;
+  cursor: pointer;
+}
+
+.latest .search-form button:hover {
+  background-color: #ff6666;
 }

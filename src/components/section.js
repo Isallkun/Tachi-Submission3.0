@@ -9,7 +9,7 @@ class SectionElement extends HTMLElement {
         <section class="content">
           <article class="headline">
             <figure class="headline__figure">
-              <img src="../images/heros/hero.jpg" width="450" alt="">
+              <img src="./images/heros/hero.jpg" width="450" alt="">
               <figcaption>Tachi Restaurant</figcaption>
             </figure>
             <div class="headline__content">
@@ -22,6 +22,14 @@ class SectionElement extends HTMLElement {
           </article>
           <div class="latest">
             <h1 class="latest__label">Explore Restaurant</h1>
+            <form class="search-form">
+              <input type="text" id="searchInput" placeholder="Search by name">
+              <select id="sortSelect">
+                <option value="default">Sort by</option>
+                <option value="rating">Rating</option>
+              </select>
+              <button type="button" id="searchButton">Search</button>
+            </form>
           </div>
         </section>
       </main>

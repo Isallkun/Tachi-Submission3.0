@@ -1,32 +1,33 @@
 import CONFIG from '../../globals/config';
 
 const createRestoDetailTemplate = (resto) => `
-  <h2 class="restaurant__title">${resto.name}</h2>
-  <img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="${resto.name}" />
+  <h2 class="restaurant__title"><i class="fa fa-cutlery"></i> Detail Restaurant</h2>
+  <img class="restaurant__poster" src="${CONFIG.IMAGE_ENDPOINT + resto.pictureId}" alt="${resto.name}" />
   <div class="restaurant__info">
-    <h3>Detail Restaurant</h3>
-    <h4>Nama Restaurant</h4>
+    <h4><i class="fa fa-info-circle"></i> Nama Restaurant</h4>
     <p>${resto.name}</p>
-    <h4>Alamat</h4>
-    <p>${resto.address}</p>
-    <h4>Kota</h4>
-    <p>${resto.city}</p>
-    <h4>Detail Makanan</h4>
-    <p>${resto.menus.foods.map((food) => `${food.name}`).join(', ')}</p>
-    <h4>Detail Minuman</h4>
-    <p>${resto.menus.drinks.map((drink) => `${drink.name}`).join(', ')}</p>
-  </div>
-  <div class="restaurant__overview">
-    <h3>Deskripsi</h3>
+    <h4><i class="fa fa-map-marker"></i> Alamat</h4>
+    <p>${resto.address}, ${resto.city}</p>
+    <h4><i class="fa fa-file-text"></i> Deskripsi</h4>
     <p>${resto.description}</p>
   </div>
-  <div class="restaurant__overview">
-    <h3>Customer Reviews</h3>
+  <h2 class="restaurant__title"><i class="fa fa-book"></i> Menu Restaurant</h2>
+  <div class="restaurant__menu">
+    <h4><i class="fa fa-cutlery"></i> Detail Makanan</h4>
+    <p>${resto.menus.foods.map((food) => `${food.name}`).join(', ')}</p>
+    <h4><i class="fa fa-glass"></i> Detail Minuman</h4>
+    <p>${resto.menus.drinks.map((drink) => `${drink.name}`).join(', ')}</p>
+  </div>
+  <h2 class="restaurant__title"><i class="fa fa-star"></i> Review Restaurant</h2>
+  <div class="restaurant__reviews">
     ${resto.customerReviews
     .map(
       (review) => `
-        <p>"${review.review}" - ${review.name}</p>
-        <p class="date-review">${review.date}</p><br>
+        <div class="review-item">
+          <p class="review-name"><i class="fa fa-user"></i> ${review.name}</p>
+          <p class="review-date"><i class="fa fa-calendar"></i> ${review.date}</p>
+          <p class="review-text">"${review.review}"</p>
+        </div>
       `,
     )
     .join('')}
@@ -37,7 +38,7 @@ const createRestoItemTemplate = (resto) => `
   <div class="restaurant-item">
     <div class="restaurant-item__header">
       <img class="restaurant-item__header__poster" alt="${resto.name}"
-           src="${resto.pictureId ? CONFIG.BASE_IMAGE_URL + resto.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
+           src="${resto.pictureId ? CONFIG.IMAGE_ENDPOINT + resto.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
       <div class="restaurant-item__header__rating">
         <p>⭐️<span class="restaurant-item__header__rating__score">${resto.rating}</span></p>
       </div>

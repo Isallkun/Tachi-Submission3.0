@@ -57,11 +57,11 @@ a {
 
 .header__title {
   font-weight: 500;
-  font-size: 4em;
+  font-size: 2.5em;
   margin: 0.5em 0.25em;
   display: inline-block;
   color: #ff8080;
-  font-family: "Poppins", sans-serif;
+  font-family: "Ms Madi", cursive;
 }
 
 .header__menu {
@@ -87,7 +87,7 @@ a {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  text-align: right;
   background-color: #ff8080;
 }
 
@@ -158,13 +158,13 @@ a {
 }
 
 .hero__title {
-  color: #fff;
+  color: white;
   font-weight: 500;
   font-size: 36px;
 }
 
 .hero__tagline {
-  color: #fff;
+  color: white;
   margin-top: 16px;
   font-size: 18px;
   font-weight: 300;
@@ -347,17 +347,17 @@ footer {
   padding: 1em;
   width: 100%;
   text-align: center;
+  color: white;
 }
 
 footer > p {
   padding-top: 20px;
   font-size: 14px;
-  color: #fff;
 }
 
 footer a {
   display: inline-block;
-  color: #fff;
+  color: white;
   text-decoration: none;
   min-height: 44px;
 }

@@ -12,52 +12,73 @@ const Detail = {
       <div id="restaurant" class="restaurant"></div>
       <div id="likeButtonContainer"></div>
 
-      <div id="addReview"></div
+      <div id="addReview"></div>
+      <div id="messageContainer"></div>
+      <div id="customAlert" class="custom-alert">
+        <div class="custom-alert-content">
+          <span id="customAlertMessage"></span>
+          <button id="customAlertClose">OK</button>
+        </div>
+      </div>
     `;
   },
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantSource.detailResto(url.id);
-    const restaurantContainer = document.querySelector('#restaurant');
-    restaurantContainer.innerHTML = createRestoDetailTemplate(restaurant);
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: restaurant.id,
-        name: restaurant.name,
-        pictureId: restaurant.pictureId,
-        rating: restaurant.rating,
-        city: restaurant.city,
-        description: restaurant.description,
-      },
-    });
+    try {
+      const restaurant = await RestaurantSource.detailResto(url.id);
+      const restaurantContainer = document.querySelector('#restaurant');
+      restaurantContainer.innerHTML = createRestoDetailTemplate(restaurant);
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        restaurant: {
+          id: restaurant.id,
+          name: restaurant.name,
+          pictureId: restaurant.pictureId,
+          rating: restaurant.rating,
+          city: restaurant.city,
+          description: restaurant.description,
+        },
+      });
 
-    const addReview = document.querySelector('#addReview');
-    addReview.innerHTML = createReviewTemplate();
-    const submitButton = document.querySelector('#submit');
-    const reviewer = document.querySelector('#formNama');
-    const formReview = document.querySelector('#formReview');
-    const restaurantId = restaurant.id;
-    submitButton.addEventListener('click', async (ev) => {
-      ev.preventDefault();
-      if (reviewer.value === '' && formReview.value === '') {
-        // eslint-disable-next-line no-alert
-        alert('Harap lengkapi semua form');
-        reviewer.value = '';
-        formReview.value = '';
-      } else {
-        const review = {
-          id: restaurantId,
-          name: reviewer.value,
-          review: formReview.value,
-        };
-        const sendReview = await RestaurantSource.reviewResto(review);
-        reviewer.value = '';
-        formReview.value = '';
-        console.log(sendReview);
-      }
-    });
+      const addReview = document.querySelector('#addReview');
+      addReview.innerHTML = createReviewTemplate();
+      const submitButton = document.querySelector('#submit');
+      const reviewer = document.querySelector('#formNama');
+      const formReview = document.querySelector('#formReview');
+      const restaurantId = restaurant.id;
+      const messageContainer = document.querySelector('#messageContainer');
+      const customAlert = document.querySelector('#customAlert');
+      const customAlertMessage = document.querySelector('#customAlertMessage');
+      const customAlertClose = document.querySelector('#customAlertClose');
+      submitButton.addEventListener('click', async (ev) => {
+        ev.preventDefault();
+        if (reviewer.value.trim() === '' || formReview.value.trim() === '') {
+          messageContainer.innerText = 'Harap lengkapi semua form';
+        } else {
+          const review = {
+            id: restaurantId,
+            name: reviewer.value,
+            review: formReview.value,
+          };
+          try {
+            await RestaurantSource.reviewResto(review);
+            reviewer.value = '';
+            formReview.value = '';
+            customAlertMessage.innerText = 'Review berhasil dikirim';
+            customAlert.style.display = 'block';
+          } catch (error) {
+            messageContainer.innerText = 'Gagal mengirim review';
+            console.error(error);
+          }
+        }
+      });
+      customAlertClose.addEventListener('click', () => {
+        customAlert.style.display = 'none';
+      });
+    } catch (error) {
+      console.error('Failed to fetch restaurant details:', error);
+    }
   },
 };
 

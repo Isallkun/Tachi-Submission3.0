@@ -54,7 +54,7 @@
     align-items: center;
     min-height: 380px;
     width: 100%;
-    text-align: center;
+    : center;
     background-image: url("../public/images/heros/hero-small.jpg");
     background-position: center;
     background-color: #ff8080;

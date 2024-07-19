@@ -1,10 +1,10 @@
 const CONFIG = {
-  BASE_URL: 'https://restaurant-api.dicoding.dev/',
-  BASE_IMAGE_URL: 'https://restaurant-api.dicoding.dev/images/large/',
-  CACHE_NAME: 'RestaurantApp-V1',
-  DATABASE_NAME: 'restaurant-app-database',
-  DATABASE_VERSION: 1,
-  OBJECT_STORE_NAME: 'restaurants',
+  API_ENDPOINT: 'https://restaurant-api.dicoding.dev/',
+  IMAGE_ENDPOINT: 'https://restaurant-api.dicoding.dev/images/large/',
+  CACHE_IDENTIFIER: 'RestaurantApp-V1',
+  DB_NAME: 'restaurant-app-database',
+  DB_VERSION: 1,
+  STORE_NAME: 'restaurants',
 };
 
 export default CONFIG;
