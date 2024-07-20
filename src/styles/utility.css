@@ -426,6 +426,8 @@ img {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+  min-width: 44px; 
+  min-height: 44px;
   margin-top: 16px;
 }
 
@@ -444,6 +446,8 @@ img {
 .latest .search-form button {
   padding: 8px;
   font-size: 16px;
+  min-width: 44px; 
+  min-height: 44px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -452,6 +456,10 @@ img {
   background-color: #ff8080;
   color: white;
   cursor: pointer;
+  min-width: 44px; 
+  min-height: 44px; 
+  padding: 12px; 
+  font-size: 16px; 
 }
 
 .latest .search-form button:hover {

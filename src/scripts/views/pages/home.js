@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import RestaurantSource from '../../data/restaurant-source';
 import { createRestoItemTemplate } from '../templates/template_creator';
 
@@ -39,6 +40,7 @@ const Home = {
       restaurants.forEach((rest) => {
         restaurantsContainer.innerHTML += createRestoItemTemplate(rest);
       });
+      console.log('Rendered Restaurants:', restaurants); // Debugging statement
     };
 
     const fetchAndRenderRestaurants = async () => {
@@ -51,10 +53,10 @@ const Home = {
       let filteredRestaurants = await RestaurantSource.homeResto();
 
       if (query) {
-        // eslint-disable-next-line max-len
         filteredRestaurants = filteredRestaurants.filter((resto) => resto.name.toLowerCase().includes(query));
       }
 
+      console.log('Filtered Restaurants:', filteredRestaurants); // Debugging statement
       renderRestaurants(filteredRestaurants);
     };
 

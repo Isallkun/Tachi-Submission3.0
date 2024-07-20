@@ -394,6 +394,8 @@ body.dark-mode .dark-mode-toggle i {
   background: none;
   border: none;
   padding: 0;
+  min-width: 44px; 
+  min-height: 44px;
   vertical-align: middle;
 }
 

@@ -4,7 +4,7 @@
     width: 300px;
     background-color: white;
     position: absolute;
-    transform: translate(-300px, 0);
+    transform: translateX(-300px); 
     transition: transform 0.3s ease;
   }
 
@@ -16,7 +16,7 @@
   }
 
   .open {
-    transform: translate(0,0);
+    transform: translateX(0); 
   }
 
   .nav__item {
@@ -54,7 +54,7 @@
     align-items: center;
     min-height: 380px;
     width: 100%;
-    : center;
+    align-items: center;
     background-image: url("../public/images/heros/hero-small.jpg");
     background-position: center;
     background-color: #ff8080;
