@@ -9,7 +9,6 @@ class SectionElement extends HTMLElement {
         <section class="content">
           <article class="headline">
             <figure class="headline__figure">
-              <img src="./images/heros/hero.jpg" width="450" alt="">
               <figcaption>Tachi Restaurant</figcaption>
             </figure>
             <div class="headline__content">

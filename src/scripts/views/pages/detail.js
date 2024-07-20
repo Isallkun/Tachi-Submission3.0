@@ -17,7 +17,7 @@ const Detail = {
       <div id="customAlert" class="custom-alert">
         <div class="custom-alert-content">
           <span id="customAlertMessage"></span>
-          <button id="customAlertClose">OK</button>
+          <button id="customAlertClose" class="custom-alert-button">OK</button>
         </div>
       </div>
     `;
@@ -67,6 +67,9 @@ const Detail = {
             formReview.value = '';
             customAlertMessage.innerText = 'Review berhasil dikirim';
             customAlert.style.display = 'block';
+            setTimeout(() => {
+              location.reload();
+            }, 10000);
           } catch (error) {
             messageContainer.innerText = 'Gagal mengirim review';
             console.error(error);
