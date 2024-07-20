@@ -4,7 +4,8 @@
     width: 300px;
     background-color: white;
     position: absolute;
-    transform: translateX(-300px); 
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-900px, 0);
     transition: transform 0.3s ease;
   }
 
@@ -16,7 +17,8 @@
   }
 
   .open {
-    transform: translateX(0); 
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   .nav__item {
@@ -25,6 +27,21 @@
     border-bottom: 1px solid black;
     text-align: left;
     list-style: none;
+    min-width: 44px;
+    padding: 10px;
+  }
+
+  .latest .search-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .latest .search-form select {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    background-color: white;
+    padding: 10px;
   }
 }
 
@@ -48,21 +65,20 @@
   }
 }
 
+/* pindah ke main.css soalnya disini ga kepake
 @media screen and (max-width: 600px) {
   .hero {
     display: flex;
     align-items: center;
     min-height: 380px;
     width: 100%;
-    align-items: center;
     background-image: url("../public/images/heros/hero-small.jpg");
     background-position: center;
-    background-color: #ff8080;
+    background-color: #ff8080 !important;
     background-size: cover;
     background-repeat: no-repeat;
   }
-}
-
+} */
 
 @media screen and (min-width: 650px) {
   .headline__content {

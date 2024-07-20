@@ -140,6 +140,19 @@ a {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #ff8080 !important; 
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    background-image: linear-gradient(rgba(245, 229, 229, 0.5), rgba(249, 176, 176, 0.5)), url("../public/images/heros/hero-small.jpg");
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .hero {
+    background-image: linear-gradient(rgba(245, 229, 229, 0.5), rgba(249, 176, 176, 0.5)), url("../public/images/heros/hero-large.jpg");
+  }
 }
 
 .hero::before {

@@ -1,6 +1,9 @@
+import lazySizes from 'lazysizes';
 import DrawerInitiator from '../utils/drawer-initiator';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
+
+lazySizes.init();
 
 class App {
   constructor({ button, drawer, content }) {
