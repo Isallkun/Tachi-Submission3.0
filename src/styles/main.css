@@ -155,6 +155,13 @@ a {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .hero {
+    background-image: linear-gradient(rgba(245, 229, 229, 0.5), rgba(249, 176, 176, 0.5)), url("../public/images/heros/hero.jpg");
+    min-width: 1000px;
+  }
+}
+
 .hero::before {
   content: "";
   position: absolute;
