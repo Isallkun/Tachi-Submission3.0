@@ -466,7 +466,7 @@ img {
 .latest .search-form select,
 .latest .search-form button {
   padding: 8px;
-  font-size: 16px;
+  font-size: 14px;
   min-width: 44px; 
   min-height: 44px;
   border: 1px solid #ddd;
@@ -480,7 +480,7 @@ img {
   min-width: 44px; 
   min-height: 44px; 
   padding: 12px; 
-  font-size: 16px; 
+  font-size: 14px; 
 }
 
 .latest .search-form button:hover {
